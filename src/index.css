@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Core Palette — Greenway Family Auto */
+  --color-bg:           hsl(215, 18%, 10%);     /* #141920 — deep charcoal with cool undertone */
+  --color-surface:      hsl(215, 15%, 14%);     /* #1e242d — card surface */
+  --color-surface-mid:  hsl(215, 14%, 18%);     /* #27303c — elevated surface */
+  --color-border:       hsl(215, 12%, 24%);     /* #364250 — clean border */
+  --color-green:        hsl(148, 65%, 44%);     /* #27b864 — vivid emerald / forest green */
+  --color-green-hover:  hsl(148, 68%, 38%);     /* #1fa357 — active/hover green */
+  --color-green-glow:   hsla(148, 65%, 44%, 0.22); /* luminous ambient glow */
+  --color-green-subtle: hsla(148, 65%, 44%, 0.12); /* subtle tinted background */
+  
+  /* Backward-compatibility aliases */
+  --color-orange:       var(--color-green);
+  --color-orange-hover: var(--color-green-hover);
+  --color-orange-glow:  var(--color-green-glow);
+
+  --color-grey-light:   hsl(0, 0%, 93%);        /* #eeeeee */
+  --color-grey-mid:     hsl(215, 10%, 65%);     /* #9ea7b4 */
+  --color-grey-dark:    hsl(215, 10%, 42%);     /* #616c7a */
+  --color-white:        hsl(0, 0%, 100%);
+
+  /* Typography Scale */
+  --text-hero:    clamp(48px, 7vw, 120px);
+  --text-h2:      clamp(32px, 4vw, 58px);
+  --text-h3:      clamp(20px, 2.2vw, 27px);
+  --text-body:    16px;
+  --text-small:   14px;
+  --text-label:   12px;
+
+  /* Spacing */
+  --section-px:   clamp(24px, 5vw, 96px);
+  --section-py:   clamp(64px, 8vw, 120px);
+
+  /* Radius */
+  --radius-sm:    6px;
+  --radius-md:    12px;
+  --radius-lg:    20px;
+
+  /* Transitions */
+  --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:  cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-grey-light);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ===================== */
+/* MARQUEE ANIMATION     */
+/* ===================== */
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ===================== */
+/* MOBILE DRAWER         */
+/* ===================== */
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+/* ===================== */
+/* PRICING TABLE SCROLL  */
+/* ===================== */
+
+.pricing-scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===================== */
+/* SCROLLBAR STYLING     */
+/* ===================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-grey-dark);
+}
